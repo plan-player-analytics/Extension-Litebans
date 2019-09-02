@@ -46,7 +46,7 @@ import java.util.UUID;
  *
  * @author Rsl1122
  */
-@PluginInfo(name = "Litebans", iconName = "", iconFamily = Family.SOLID, color = Color.NONE)
+@PluginInfo(name = "Litebans", iconName = "gavel", iconFamily = Family.SOLID, color = Color.RED)
 @TabInfo(tab = "Bans", iconName = "gavel", elementOrder = {})
 @TabInfo(tab = "Mutes", iconName = "bell-slash", iconFamily = Family.REGULAR, elementOrder = {})
 @TabInfo(tab = "Warnings", iconName = "exclamation-triangle", elementOrder = {})
