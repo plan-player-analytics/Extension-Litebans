@@ -22,30 +22,51 @@
 */
 package com.djrapitops.extension;
 
-import com.djrapitops.plan.extension.DataExtension;
-
-import java.util.Optional;
+import java.util.UUID;
 
 /**
- * Factory for DataExtension.
+ * Represents something in the Litebans database.
  *
  * @author Rsl1122
  */
-public class NewExtensionFactory {
+public class LitebansDBEntry {
+    private final UUID uuid;
+    private final String reason;
+    private final String bannedBy;
+    private final long expiry;
+    private final boolean active;
+    private final long time;
 
-    private boolean isAvailable() {
-        try {
-            Class.forName("");
-            return true;
-        } catch (ClassNotFoundException e) {
-            return false;
-        }
+    public LitebansDBEntry(UUID uuid, String reason, String bannedBy, long expiry, boolean active, long time) {
+        this.uuid = uuid;
+        this.reason = reason;
+        this.bannedBy = bannedBy;
+        this.expiry = expiry;
+        this.active = active;
+        this.time = time;
     }
 
-    public Optional<DataExtension> createExtension() {
-        if (isAvailable()) {
-            return Optional.of(new NewExtension());
-        }
-        return Optional.empty();
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public String getBannedBy() {
+        return bannedBy;
+    }
+
+    public long getExpiry() {
+        return expiry;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public long getTime() {
+        return time;
     }
 }
