@@ -6,7 +6,7 @@
 
     <groupId>com.djrapitops</groupId>
     <artifactId>Extension-Litebans</artifactId>
-    <version>0.3-R0.1</version>
+    <version>0.3.2-R0.1</version>
     <build>
         <plugins>
             <plugin>
@@ -30,6 +30,10 @@
         <repository>
             <id>plan-bintray</id>
             <url>https://dl.bintray.com/rsl1122/Plan-repository/</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
 
         <!-- Platforms -->
@@ -62,9 +66,9 @@
 
         <!-- Plugin API Dependency -->
         <dependency>
-            <groupId>litebans</groupId>
-            <artifactId>api</artifactId>
-            <version>0.3</version>
+            <groupId>com.gitlab.ruany</groupId>
+            <artifactId>LiteBansAPI</artifactId>
+            <version>0.3.2</version>
             <scope>provided</scope>
         </dependency>
 

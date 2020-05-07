@@ -126,7 +126,7 @@ public class LitebansExtension implements DataExtension {
 
     @TableProvider(tableColor = Color.RED)
     @Tab("Bans")
-    public Table bans() {
+    public Table serverBans() {
         Table.Factory table = serverTable();
         addRows(table, QueryService.getInstance(), queries.getBans());
         return table.build();
@@ -134,7 +134,7 @@ public class LitebansExtension implements DataExtension {
 
     @TableProvider(tableColor = Color.DEEP_ORANGE)
     @Tab("Mutes")
-    public Table mutes() {
+    public Table serverMutes() {
         Table.Factory table = serverTable();
         addRows(table, QueryService.getInstance(), queries.getMutes());
         return table.build();
@@ -142,7 +142,7 @@ public class LitebansExtension implements DataExtension {
 
     @TableProvider(tableColor = Color.AMBER)
     @Tab("Warnings")
-    public Table warns() {
+    public Table serverWarns() {
         Table.Factory table = serverTable();
         addRows(table, QueryService.getInstance(), queries.getWarnings());
         return table.build();
@@ -150,7 +150,7 @@ public class LitebansExtension implements DataExtension {
 
     @TableProvider(tableColor = Color.BROWN)
     @Tab("Kicks")
-    public Table kicks() {
+    public Table serverKicks() {
         Table.Factory table = serverTable();
         addRows(table, QueryService.getInstance(), queries.getKicks());
         return table.build();
