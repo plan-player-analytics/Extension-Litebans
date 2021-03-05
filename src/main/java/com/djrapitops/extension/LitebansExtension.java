@@ -1,5 +1,5 @@
 /*
-    Copyright(c) 2019 Risto Lahtela (Rsl1122)
+    Copyright(c) 2019 Risto Lahtela (AuroraLS3)
 
     The MIT License(MIT)
 
@@ -44,7 +44,7 @@ import java.util.UUID;
 /**
  * Litebans DataExtension.
  *
- * @author Rsl1122
+ * @author AuroraLS3
  */
 @PluginInfo(name = "Litebans", iconName = "gavel", iconFamily = Family.SOLID, color = Color.RED)
 @TabInfo(tab = "Bans", iconName = "gavel", elementOrder = {})
