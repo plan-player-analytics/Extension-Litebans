@@ -25,10 +25,7 @@ package com.djrapitops.extension;
 import com.djrapitops.plan.extension.CallEvents;
 import com.djrapitops.plan.extension.Caller;
 import com.djrapitops.plan.extension.DataExtension;
-import com.djrapitops.plan.extension.annotation.PluginInfo;
-import com.djrapitops.plan.extension.annotation.Tab;
-import com.djrapitops.plan.extension.annotation.TabInfo;
-import com.djrapitops.plan.extension.annotation.TableProvider;
+import com.djrapitops.plan.extension.annotation.*;
 import com.djrapitops.plan.extension.icon.Color;
 import com.djrapitops.plan.extension.icon.Family;
 import com.djrapitops.plan.extension.icon.Icon;
@@ -53,12 +50,12 @@ import java.util.UUID;
 @TabInfo(tab = "Kicks", iconName = "user-times", elementOrder = {})
 public class LitebansExtension implements DataExtension {
 
-    private LitebansDatabaseQueries queries;
-    private SimpleDateFormat formatter;
+    private final LitebansDatabaseQueries queries;
+    private final SimpleDateFormat formatter;
 
     public LitebansExtension() {
         queries = new LitebansDatabaseQueries();
-        formatter = new SimpleDateFormat("MMM d YYYY, HH:mm");
+        formatter = new SimpleDateFormat("MMM d yyyy, HH:mm");
     }
 
     public static void registerEvents(Caller caller) {
@@ -122,6 +119,16 @@ public class LitebansExtension implements DataExtension {
         Table.Factory table = playerTable();
         addRows(table, queries.getKicks(playerUUID));
         return table.build();
+    }
+
+    @StringProvider(
+            text = "Connected from same IP",
+            iconName = "users",
+            iconColor = Color.BLUE
+    )
+    public String connectors(UUID playerUUID) {
+        String alternativeConnects = queries.getAlternativeConnects(playerUUID).toString();
+        return alternativeConnects.substring(1, alternativeConnects.length() - 1);
     }
 
     @TableProvider(tableColor = Color.RED)
