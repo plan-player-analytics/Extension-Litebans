@@ -138,9 +138,10 @@ public class LitebansDatabaseQueries {
     }
 
     public List<String> getAlternativeConnects(UUID playerUUID) {
-        String sql = "SELECT name FROM {history} WHERE uuid=?";
+        String sql = "SELECT name FROM {history} WHERE uuid=? UNION SELECT name FROM {history} WHERE ip IN (SELECT ip FROM {history} WHERE uuid=?)";
         try (PreparedStatement statement = Database.get().prepareStatement(sql)) {
             statement.setString(1, playerUUID.toString());
+            statement.setString(2, playerUUID.toString());
             try (ResultSet set = statement.executeQuery()) {
                 List<String> names = new ArrayList<>();
                 while (set.next()) names.add(set.getString("name"));
