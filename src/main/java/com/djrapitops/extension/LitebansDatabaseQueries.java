@@ -55,7 +55,7 @@ public class LitebansDatabaseQueries {
     }
 
     private List<LitebansDBEntry> getObjs(String table) {
-        String sql = selectSQL + table + " LIMIT 5000";
+        String sql = selectSQL + table + " ORDER BY id DESC LIMIT 5000";
 
         try (PreparedStatement statement = Database.get().prepareStatement(sql);
              ResultSet set = statement.executeQuery()) {
