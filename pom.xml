@@ -6,7 +6,7 @@
 
     <groupId>com.djrapitops</groupId>
     <artifactId>Extension-Litebans</artifactId>
-    <version>0.3.4-R0.3</version>
+    <version>0.3.4-R0.4</version>
     <build>
         <plugins>
             <plugin>
@@ -104,6 +104,7 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.5.1</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
