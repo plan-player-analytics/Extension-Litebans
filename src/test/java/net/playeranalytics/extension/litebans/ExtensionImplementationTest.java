@@ -1,5 +1,5 @@
 /*
-    Copyright(c) 2019 Risto Lahtela (AuroraLS3)
+    Copyright(c) 2019 AuroraLS3
 
     The MIT License(MIT)
 
@@ -20,53 +20,33 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 */
-package com.djrapitops.extension;
+package net.playeranalytics.extension.litebans;
 
-import java.util.UUID;
+import com.djrapitops.plan.extension.DataExtension;
+import com.djrapitops.plan.extension.extractor.ExtensionExtractor;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
- * Represents something in the Litebans database.
+ * Test for the implementation of the new extension
  *
  * @author AuroraLS3
  */
-public class LitebansDBEntry {
-    private final UUID uuid;
-    private final String reason;
-    private final String bannedBy;
-    private final long expiry;
-    private final boolean active;
-    private final long time;
+class ExtensionImplementationTest {
 
-    public LitebansDBEntry(UUID uuid, String reason, String bannedBy, long expiry, boolean active, long time) {
-        this.uuid = uuid;
-        this.reason = reason;
-        this.bannedBy = bannedBy;
-        this.expiry = expiry;
-        this.active = active;
-        this.time = time;
+    private ExtensionExtractor extractor;
+
+    @BeforeEach
+    void prepareExtractor() {
+        DataExtension extension = new LitebansExtension();
+        extractor = new ExtensionExtractor(extension);
     }
 
-    public UUID getUuid() {
-        return uuid;
+    @Test
+    @DisplayName("API is implemented correctly")
+    void noImplementationErrors() {
+        extractor.validateAnnotations();
     }
 
-    public String getReason() {
-        return reason;
-    }
-
-    public String getBannedBy() {
-        return bannedBy;
-    }
-
-    public long getExpiry() {
-        return expiry;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public long getTime() {
-        return time;
-    }
 }
