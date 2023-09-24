@@ -55,7 +55,7 @@ public class LitebansDatabaseQueries {
     }
 
     private List<LitebansDBEntry> getObjs(String table) {
-        String sql = selectSQL + table + " ORDER BY id DESC LIMIT 5000";
+        String sql = selectSQL + table + " ORDER BY time DESC LIMIT 5000";
 
         try (PreparedStatement statement = Database.get().prepareStatement(sql);
              ResultSet set = statement.executeQuery()) {
@@ -123,7 +123,7 @@ public class LitebansDatabaseQueries {
     }
 
     private List<LitebansDBEntry> getObjs(UUID playerUUID, String table) {
-        String sql = selectSQL + table + " WHERE uuid=?";
+        String sql = selectSQL + table + " WHERE uuid=? ORDER BY time DESC";
 
         try (PreparedStatement statement = Database.get().prepareStatement(sql)) {
             statement.setString(1, playerUUID.toString());
