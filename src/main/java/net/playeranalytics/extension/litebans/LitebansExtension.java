@@ -30,11 +30,11 @@ import com.djrapitops.plan.extension.icon.Color;
 import com.djrapitops.plan.extension.icon.Family;
 import com.djrapitops.plan.extension.icon.Icon;
 import com.djrapitops.plan.extension.table.Table;
+import com.djrapitops.plan.extension.table.TableColumnFormat;
 import com.djrapitops.plan.query.QueryService;
 import litebans.api.Entry;
 import litebans.api.Events;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.UUID;
 
@@ -50,12 +50,12 @@ import java.util.UUID;
 @TabInfo(tab = "Kicks", iconName = "user-times", elementOrder = {})
 public class LitebansExtension implements DataExtension {
 
+    private static final String CLOCK = "clock";
+
     private final LitebansDatabaseQueries queries;
-    private final SimpleDateFormat formatter;
 
     public LitebansExtension() {
         queries = new LitebansDatabaseQueries();
-        formatter = new SimpleDateFormat("MMM d yyyy, HH:mm");
     }
 
     public static void registerEvents(Caller caller) {
@@ -71,6 +71,7 @@ public class LitebansExtension implements DataExtension {
                 try {
                     caller.updatePlayerData(UUID.fromString(uuid), null); // Player name is not needed by LitebansExtension
                 } catch (IllegalArgumentException ignore) {
+                    // Ignored
                 }
             }
 
@@ -167,8 +168,10 @@ public class LitebansExtension implements DataExtension {
         return Table.builder()
                 .columnOne("Reason", Icon.called("balance-scale").build())
                 .columnTwo("By", Icon.called("user-shield").build())
-                .columnThree("Given", Icon.called("clock").build())
-                .columnFour("Expires", Icon.called("clock").of(Family.REGULAR).build());
+                .columnThree("Given", Icon.called(CLOCK).build())
+                .columnThreeFormat(TableColumnFormat.DATE_SECOND)
+                .columnFour("Expires", Icon.called(CLOCK).of(Family.REGULAR).build())
+                .columnFourFormat(TableColumnFormat.DATE_SECOND);
     }
 
     private Table.Factory serverTable() {
@@ -176,12 +179,14 @@ public class LitebansExtension implements DataExtension {
                 .columnOne("Affects", Icon.called("user").build())
                 .columnTwo("By", Icon.called("user-shield").build())
                 .columnThree("Reason", Icon.called("balance-scale").build())
-                .columnFour("Given", Icon.called("clock").build())
-                .columnFive("Expires", Icon.called("clock").of(Family.REGULAR).build());
+                .columnFour("Given", Icon.called(CLOCK).build())
+                .columnFourFormat(TableColumnFormat.DATE_SECOND)
+                .columnFive("Expires", Icon.called(CLOCK).of(Family.REGULAR).build())
+                .columnFiveFormat(TableColumnFormat.DATE_SECOND);
     }
 
-    private String formatDate(long date) {
-        return date <= 0 ? "Never" : formatter.format(date);
+    private Object formatDate(long date) {
+        return date <= 0 ? "Never" : date;
     }
 
     private void addRows(Table.Factory table, List<LitebansDBEntry> entries) {

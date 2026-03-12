@@ -6,7 +6,7 @@
 
     <groupId>net.playeranalytics</groupId>
     <artifactId>Extension-Litebans</artifactId>
-    <version>0.4.1-R1.5</version>
+    <version>0.4.1-R2.0</version>
     <build>
         <plugins>
             <plugin>
@@ -32,24 +32,6 @@
             <url>https://jitpack.io</url>
         </repository>
 
-        <!-- Platforms -->
-
-        <!--<repository>-->
-        <!--<id>spigot-repo</id>-->
-        <!--<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>sponge-repo</id>-->
-        <!--<url>https://repo.spongepowered.org/maven</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>bungeecord-repo</id>-->
-        <!--<url>https://oss.sonatype.org/content/repositories/snapshots</url>-->
-        <!--</repository>-->
-        <!--<repository>-->
-        <!--<id>velocity-repo</id>-->
-        <!--<url>https://repo.velocitypowered.com/snapshots/</url>-->
-        <!--</repository>-->
         <repository>
             <id>plan-repo</id>
             <url>https://repo.playeranalytics.net/releases</url>
@@ -60,7 +42,7 @@
         <dependency> <!-- Plan API -->
             <groupId>com.djrapitops</groupId>
             <artifactId>plan-api</artifactId>
-            <version>5.2-R0.8</version>
+            <version>5.7-R0.2</version>
             <scope>provided</scope>
         </dependency>
 
@@ -71,33 +53,6 @@
             <version>0.4.1</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- Platforms -->
-
-        <!--<dependency>-->
-        <!--<groupId>org.spigotmc</groupId>-->
-        <!--<artifactId>spigot-api</artifactId>-->
-        <!--<version>1.12.2-R0.1-SNAPSHOT</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.spongepowered</groupId>-->
-        <!--<artifactId>spongeapi</artifactId>-->
-        <!--<version>7.1.0</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>net.md-5</groupId>-->
-        <!--<artifactId>bungeecord-api</artifactId>-->
-        <!--<version>1.12-SNAPSHOT</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>com.velocitypowered</groupId>-->
-        <!--<artifactId>velocity-api</artifactId>-->
-        <!--<version>1.0-SNAPSHOT</version>-->
-        <!--<scope>provided</scope>-->
-        <!--</dependency>-->
 
         <!-- Test Dependencies -->
         <dependency>

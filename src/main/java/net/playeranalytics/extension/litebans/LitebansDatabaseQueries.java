@@ -63,6 +63,9 @@ public class LitebansDatabaseQueries {
         } catch (IllegalStateException | MissingImplementationException e) {
             throw new NotReadyException();
         } catch (SQLException e) {
+            if (e.getErrorCode() == 0) {
+                throw new NotReadyException();
+            }
             throw new IllegalStateException(e);
         }
     }
@@ -133,6 +136,9 @@ public class LitebansDatabaseQueries {
         } catch (IllegalStateException | MissingImplementationException e) {
             throw new NotReadyException();
         } catch (SQLException e) {
+            if (e.getErrorCode() == 0) {
+                throw new NotReadyException();
+            }
             throw new IllegalStateException(e);
         }
     }
@@ -150,6 +156,9 @@ public class LitebansDatabaseQueries {
         } catch (IllegalStateException | MissingImplementationException e) {
             throw new NotReadyException();
         } catch (SQLException e) {
+            if (e.getErrorCode() == 0) {
+                throw new NotReadyException();
+            }
             throw new IllegalStateException(e);
         }
     }
